@@ -11,3 +11,50 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  background-color: bisque;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+div{
+  width: 100%;
+  height: 100vh;
+  background: tomato;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+h1{
+ color: white;
+ background: transparent;
+ text-shadow: 0 2px 2px black;
+
+}
+
+input{
+  width: 50%;
+  padding: 10px 20px;
+  border: none;
+  margin: 20px 0;
+  text-align: center;
+}
+
+button{
+  line-height: 24px;
+  padding: 0 20px;
+  background: lightseagreen;
+  color: white;
+  border: 2px solid slategrey;
+  outline: none;
+  border-radius: 5px;
+  text-transform: uppercase;
+  cursor: pointer;
+
+}
