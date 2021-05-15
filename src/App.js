@@ -6,6 +6,8 @@ function App() {
 const [fullName, setFullName] = useState({
   fname:'',
   lname:'',
+  email:'',
+  mnumber:''
 });
 
   const inputEvent = (event)=>{
@@ -13,24 +15,18 @@ const [fullName, setFullName] = useState({
     console.log(event.target.name);
     console.log(event.target.placeholder);
 
-    const value = event.target.value;
-    const name = event.target.name;
+    // const value = event.target.value;
+    // const name = event.target.name;
+
+    // array destructuring
+    const {value, name} = event.target;
 
     setFullName((preValue)=>{
-      console.log("@@@@@@@@@@@@@@", preValue)
-
-      // name is present input attribute name
-
-      if(name === "fName"){
-        return{
-          fname: value,
-          lname:preValue.lname
-        };
-      }else if(name === "lName"){
-        return{
-          fname: preValue.fname,
-          lname:value
-        };
+      console.log("@@@@@@@@@@@@@@", preValue);
+      
+      return{
+        ...preValue,
+        [name]: value,
       }
     });
   };
@@ -46,10 +42,15 @@ const [fullName, setFullName] = useState({
       <form onSubmit={onSubmit} >
           <div>
             <h1>Hello, {fullName.fname} {fullName.lname}</h1>
-            <input type="text" name="fName" placeholder="Enter Your Name" onChange={inputEvent} value={fullName.fname} />
+            <p>{fullName.email} {fullName.mnumber}</p>
+            <input type="text" name="fname" placeholder="Enter Your Name" onChange={inputEvent} value={fullName.fname} />
             <br />
 
-            <input type="text" name="lName" placeholder="Enter Your Last Name" onChange={inputEvent}  value={fullName.lname} />
+            <input type="text" name="lname" placeholder="Enter Your Last Name" onChange={inputEvent}  value={fullName.lname} />
+
+            <input type="email" name="email" placeholder="Enter Your E mail" onChange={inputEvent}  value={fullName.email} />
+
+            <input type="number" name="mnumber" placeholder="Enter Your Moobile Number" onChange={inputEvent}  value={fullName.mnumber} />
 
             <button type="submit" >Click Me</button>
           </div>
